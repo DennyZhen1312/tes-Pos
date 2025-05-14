@@ -3,8 +3,12 @@ import { MenuCategoryModel, MenuModel } from "./models";
 
 async function seedDatabase() {
   try {
+    const uri = process.env.MONGODB_URI;
+    if (!uri) {
+      throw new Error("🛑 MONGODB_URI is not defined in environment variables");
+    }
     // Connect to MongoDB
-    await mongoose.connect("mongodb://127.0.0.1/pointOfSaleApp");
+    await mongoose.connect(uri);
 
     // Clear existing data
     await MenuModel.deleteMany({});
