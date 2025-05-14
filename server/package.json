@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "seed": "ts-node ./server/seed.ts",
+    "seed": "ts-node src/seed.ts",
     "vercel-build": "npm run build && npm run seed"
   },
   "keywords": [],
